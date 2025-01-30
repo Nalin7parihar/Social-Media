@@ -1,12 +1,24 @@
-import { useContext, useRef } from "react"
-import { PostlistContext } from "../store/postListStore";
-import { Form, redirect, useNavigate } from "react-router-dom";
-
+import { Form, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { createPostAction } from "../store/addPostActions";
 const CreatePost = () => {
+
+  const dispatch = useDispatch();// Access loading state from Redux store
+  const navigate = useNavigate();
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target); // Get form data
+    const formDataObj = Object.fromEntries(formData.entries());
+    console.log(formDataObj);
+    // Call the createPostAction function and pass dispatch
+    await createPostAction(formDataObj, dispatch);
+    navigate('/');
+  };
 
   //const {addPost} = useContext(PostlistContext);
   return (
-    <Form method="POST" className="create-post">
+    <Form onSubmit = {handleSubmit}method="POST" className="create-post">
   <div className="mb-3">
     <label htmlFor="title" className="form-label"><b>Title</b></label>
     <input type="text" name = "title" className="form-control" id="exampleInputEmail1" placeholder="Enter appropiate Title" />
@@ -36,27 +48,4 @@ const CreatePost = () => {
 </Form>
   )
 }
-
-export async function createPostAction(data) {
-  const formData = await data.request.formData();
-  const postData = Object.fromEntries(formData);
-  postData.tags = postData.tags.split(' ');
-  const reactions = {likes: postData.likes, dislikes: postData.dislikes};
-  console.log(postData);
-  fetch('https://dummyjson.com/posts/add', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(postData)
-  })
-  .then(res => res.json())
-  .then(
-    resObj =>{
-      // addPost(resObj.userId,resObj.title,resObj.body,resObj.reactions,resObj.tags)
-      console.log(resObj);
-      }
-  );
-
-  return redirect('/');
-}
-
 export default CreatePost

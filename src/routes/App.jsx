@@ -3,24 +3,21 @@ import './App.css'
 import Header from '../components/header';
 import Footer from '../components/footer';
 import Sidebar from '../components/sidebar';
-import CreatePost from '../components/createpost';
-import Postlist from '../components/Postlist';
 import { Outlet } from 'react-router-dom';
-import PostlistProvider from '../store/postListStore';
+import PostComponent from '../components/PostComponent';
 function App() {
-    const [selectedTab, setSelectedTab] = useState('Home');
   return (
-    <PostlistProvider>
+  
     <div className="App-container">
-      <Sidebar selectedTab=  {selectedTab} setSelectedTab=  {setSelectedTab}/>
+      <Sidebar/>
       <div className="content">
       <Header/>
-      {/* {selectedTab === 'Home' ? <Postlist></Postlist> : <CreatePost></CreatePost>} */}
+      <PostComponent/>
       <Outlet/>
       <Footer/>
       </div>
      </div>
-     </PostlistProvider>
+    
     )
 }
 
