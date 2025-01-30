@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import {RouterProvider,  createBrowserRouter } from 'react-router-dom'
 import App from './routes/App.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css'  
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import CreatePost, {createPostAction} from './components/createpost.jsx'
 import Postlist from './components/Postlist.jsx'
 

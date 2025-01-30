@@ -28,6 +28,7 @@ const PostlistProvider = ({children}) =>{
 
     const [postlist, dispatchPostlist] = useReducer(postListFunction, []);
     const [fetching,setfetch] = useState(false);
+    
     const addPost = (userId,title,body,reactions,tags) => {
         dispatchPostlist({
             type : 'ADD_POST',
