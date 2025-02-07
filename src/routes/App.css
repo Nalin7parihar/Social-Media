@@ -1,3 +1,4 @@
+@import "tailwindcss";
 .App-container {
   display: flex;
 }
@@ -36,4 +37,7 @@
 
 .spinner {
   margin: 100px;
+}
+.delete {
+  cursor: pointer;
 }

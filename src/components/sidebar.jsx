@@ -7,7 +7,7 @@ const Sidebar = () => {
     <div className="d-flex sidebar flex-column flex-shrink-0 p-3 text-bg-dark" style={{width: "280px"}}>
     <NavLink to ="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
       <svg className="bi pe-none me-2" width="40" height="32"><use xlinkHref="#bootstrap"></use></svg>
-      <span className="fs-4">TheSocialHub</span>
+      <span className= "text-center w-full flex justify-center text-3xl">TheSocialHub</span>
     </NavLink>
     <hr/>
     <ul className="nav nav-pills flex-column mb-auto">
@@ -28,7 +28,7 @@ const Sidebar = () => {
     <hr/>
     <div className="dropdown">
       <a href="#" className="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-        <img src="../../userDP.jpg" alt="" width="32" height="32" className="rounded-circle me-2"/>
+        <img src="../../userDP.jpg" alt="" width="32" height="32" className="rounded-full  h-14 w-14 object-cover mr-2"/>
         <strong>Nalin</strong>
       </a>
       <ul className="dropdown-menu dropdown-menu-dark text-small shadow">
