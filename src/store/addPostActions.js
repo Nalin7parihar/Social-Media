@@ -3,6 +3,5 @@ export async function createPostAction(data,dispatch) {
   data.tags = data.tags.split(' ');
   const reactions = {likes: data.likes, dislikes: data.dislikes};
   const postData = {...data,reactions:  reactions};
-  console.log(postData);
   dispatch(addPost(postData)); 
 }

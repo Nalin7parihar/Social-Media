@@ -16,7 +16,6 @@ const PostComponent = () => {
           fetch('https://dummyjson.com/posts')
           .then(res => res.json())
           .then(data => {
-            console.log(data.posts);
             dispatch(addInitialPosts(data.posts));
             dispatch(addingCompleted());
           });

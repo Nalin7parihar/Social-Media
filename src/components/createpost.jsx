@@ -10,7 +10,6 @@ const CreatePost = () => {
     event.preventDefault();
     const formData = new FormData(event.target); // Get form data
     const formDataObj = Object.fromEntries(formData.entries());
-    console.log(formDataObj);
     // Call the createPostAction function and pass dispatch
     await createPostAction(formDataObj, dispatch);
     navigate('/');
