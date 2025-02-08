@@ -27,10 +27,7 @@ const CreatePost = () => {
     <label htmlFor="body" className="form-label"><b>Content</b></label>
     <textarea row = '4'name="body" type="text" className="form-control" id="body" placeholder="How u Feelin'"/>
   </div>
-  <div className="mb-3">
-    <label htmlFor="userId" className="form-label"><b>userId</b></label>
-    <input type="text" name="userId" className="form-control" id="userId"/>
-  </div>
+  
   <div className="mb-3">
     <label htmlFor="likes" className="form-label"><b>Number Of Likes</b></label>
     <input type="text" name="likes" className="form-control" id="likes"/>

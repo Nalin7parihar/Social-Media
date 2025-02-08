@@ -7,9 +7,10 @@ export const addPost = createAsyncThunk("Posthandle/addPost",async (data) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         title : data.title,
-        userId : data.userId,
+        userId : String(Math.floor(Math.random()*100)),
         reactions : data.reactions,
-        tags : data.tags
+        tags : data.tags,
+        body : data.body,
       })
     });
     if (!response.ok) {
