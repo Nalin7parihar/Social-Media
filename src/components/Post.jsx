@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { PostlistContext}  from "../store/postListStore";
 import { deletePost } from "../store/PostSlice";
 import { useDispatch } from "react-redux";
+import Reactions from "./Reactions";
 const Post = ({post}) => {
   const dispatch = useDispatch();
   const handleDelete = () => {
@@ -20,6 +21,7 @@ const Post = ({post}) => {
     {post.tags.map((tag) => ( <span key = {tag}className="badge text-bg-primary hashtag">{tag}</span>))}
     
   </div>
+    <Reactions reactions = {post.reactions}/>
 </div>
   )
 }
