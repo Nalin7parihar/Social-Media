@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import SearchBar from "./SearchBar"
 const Header = () => {
   return (
     <header className="p-3 text-bg-dark">
@@ -9,17 +10,13 @@ const Header = () => {
       </a>
 
       <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><Link to="/" className="nav-link px-2 text-white">Home</Link></li>
-        <li><Link to="/create-post" className="nav-link px-2 text-white">Create Post</Link></li>
-        <li><a href="#" className="nav-link px-2 text-white">Profile</a></li>
-        <li><a href="#" className="nav-link px-2 text-white">FAQs</a></li>
-        <li><a href="#" className="nav-link px-2 text-white">About</a></li>
+        <li><Link to="/" className="nav-link px-2 text-white cursor-pointer">Home</Link></li>
+        <li><Link to="/create-post" className="nav-link px-2 text-white cursor-pointer">Create Post</Link></li>
+        <li><a href="#" className="nav-link px-2 text-white cursor-pointer">Profile</a></li>
+        <li><a href="#" className="nav-link px-2 text-white cursor-pointer">FAQs</a></li>
+        <li><a href="#" className="nav-link px-2 text-white cursor-pointer">About</a></li>
       </ul>
-
-      <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-        <input type="search" className="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search"/>
-      </form>
-
+      <SearchBar/>
       <div className="text-end">
         <button type="button" className="btn btn-outline-light me-2">Login</button>
         <button type="button" className="btn btn-warning">Sign-up</button>

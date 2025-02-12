@@ -5,35 +5,35 @@ import { FaFaceGrinTears } from "react-icons/fa6";
 const Reactions = ({reactions}) => {
   console.log(reactions);
   const [reactionCounts, setReactionCounts] = useState({
-    likes: reactions.likes,
-    dislikes: reactions.dislikes,
+    likes: reactions.likes || 0,
+    dislikes: reactions.dislikes || 0,
     funny: 0,
   });
 
   const [userReaction, setUserReaction] = useState(null);
 
-  const handleReaction = (type) => {
-    setReactionCounts((prev) => {
-      let updatedCounts = { ...prev };
-  
-      if (userReaction === type) {
-        // Remove reaction
-        updatedCounts[type] -= 1;
-        setUserReaction(null);
-      } else {
-        // Add new reaction
-        updatedCounts[type] += 1;
-  
-        // Remove previous reaction if it exists
-        if (userReaction && userReaction !== type) {
-          updatedCounts[userReaction] -= 1;
+    const handleReaction = (type) => {
+      setReactionCounts((prev) => {
+        let updatedCounts = { ...prev };
+    
+        if (userReaction === type) {
+          // Remove reaction
+          updatedCounts[type] -= 1;
+          setUserReaction(null);
+        } else {
+          // Add new reaction
+          updatedCounts[type] += 1;
+    
+          // Remove previous reaction if it exists
+          if (userReaction && userReaction !== type) {
+            updatedCounts[userReaction] -= 1;
+          }
+    
+          // Move setUserReaction outside to trigger re-render properly
         }
-  
-        // Move setUserReaction outside to trigger re-render properly
-      }
-  
-      return updatedCounts;
-    });
+    
+        return updatedCounts;
+      });
   
     setUserReaction(userReaction === type ? null : type); // ✅ Fix: Triggers re-render correctly
   };

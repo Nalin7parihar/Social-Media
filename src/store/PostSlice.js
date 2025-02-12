@@ -38,6 +38,9 @@ const PostSlice = createSlice({
       },
       addingCompleted : (state) => {
         state.fetchingStatusDone = false;
+      },
+      searchPosts : (state,action) => {
+        
       }
     },
     extraReducers : (builder) => {
